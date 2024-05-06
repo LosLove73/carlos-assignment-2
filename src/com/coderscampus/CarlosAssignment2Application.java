@@ -20,13 +20,15 @@ public class CarlosAssignment2Application {
 		Scanner scanner = new Scanner(System.in);
 		int remainingAttempts = 5; // initialize variable to validate the remaining number of attempts
 		try {
-			System.out.println("Pick a number between 1 and 100");
 			for (int i = 0; i < 5;) {
+				if (i <= 4) {
+					System.out.println("Pick a number between 1 and 100");
+				}
 				String input = scanner.nextLine();
 				try {
 					Integer userInput = Integer.parseInt(input);
 					if (userInput < 1 || userInput > 100) {
-						System.out.println("Your guess is not withing 1 and 100. Please try again.");
+						System.out.println("Your guess is not within 1 and 100. Please try again.");
 					}
 					// begins else block for handling valid user input.
 					else {
@@ -34,7 +36,7 @@ public class CarlosAssignment2Application {
 							System.out.println("Pick a lower number");
 						} else if (userInput < theRandomNumber && remainingAttempts > 1) {
 							System.out.println("Pick a higher number");
-						} else {
+						} else if (userInput == theRandomNumber) {  // check if user guessed correctly.
 							return userInput;
 						}
 						remainingAttempts--;
