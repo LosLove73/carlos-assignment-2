@@ -15,9 +15,10 @@ public class CarlosAssignment2Application {
 		}
 	}
 
+	// Method to collect and validate user input
 	private static Integer collectUserInput(Integer theRandomNumber) {
 		Scanner scanner = new Scanner(System.in);
-		int remainingAttempts = 5;
+		int remainingAttempts = 5; // initialize variable to validate the remaining number of attempts
 		try {
 			System.out.println("Pick a number between 1 and 100");
 			for (int i = 0; i < 5;) {
@@ -26,7 +27,9 @@ public class CarlosAssignment2Application {
 					Integer userInput = Integer.parseInt(input);
 					if (userInput < 1 || userInput > 100) {
 						System.out.println("Your guess is not withing 1 and 100. Please try again.");
-					} else {
+					}
+					// begins else block for handling valid user input.
+					else {
 						if (userInput > theRandomNumber && remainingAttempts > 1) {
 							System.out.println("Pick a lower number");
 						} else if (userInput < theRandomNumber && remainingAttempts > 1) {
@@ -47,6 +50,7 @@ public class CarlosAssignment2Application {
 		}
 	}
 
+	// Method to generate a random number between 1 and 100 inclusive.
 	private static Integer generateRandomNumber() {
 		Random random = new Random();
 		return random.nextInt(100) + 1;
